@@ -2,6 +2,7 @@ package akzholedu.kz.specialities.services.impl;
 
 import akzholedu.kz.specialities.entities.QuizResult;
 import akzholedu.kz.specialities.entities.SpecialityQuiz;
+import akzholedu.kz.specialities.exceptions.NoSuchPageException;
 import akzholedu.kz.specialities.repositories.QuizResultRepository;
 import akzholedu.kz.specialities.repositories.SpecialityQuizRepository;
 import akzholedu.kz.specialities.services.SpecialityService;
