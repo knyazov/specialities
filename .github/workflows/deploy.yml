@@ -22,9 +22,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+#      - name: Validate Gradle wrapper
+#        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+#      - name: Build with Gradle
+#        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+#        with:
+#          arguments: build
+      - uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
-          arguments: build
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "specialities" #Must be unique in Heroku
+          heroku_email: "tantrumak@gmail.com"
