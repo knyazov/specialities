@@ -2,6 +2,7 @@ package akzholedu.kz.specialities.api;
 
 import akzholedu.kz.specialities.entities.QuizResult;
 import akzholedu.kz.specialities.entities.SpecialityQuiz;
+import akzholedu.kz.specialities.exceptions.ApiException;
 import akzholedu.kz.specialities.services.SpecialityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,10 +24,7 @@ public class RestController {
 
     @GetMapping("/{code}")
     public ResponseEntity<QuizResult> getQuizResult(@PathVariable(value = "code") String code){
-        if (specialityService.getQuizResult(code)!=null){
-            return new ResponseEntity<>(specialityService.getQuizResult(code), HttpStatus.OK);
-        }
-        else return new ResponseEntity<>(specialityService.getQuizResult(code), HttpStatus.SERVICE_UNAVAILABLE);
+        return new ResponseEntity<>(specialityService.getQuizResult(code), HttpStatus.OK);
     }
 //
 //    @GetMapping("/all")

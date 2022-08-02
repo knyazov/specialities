@@ -2,7 +2,7 @@ package akzholedu.kz.specialities.services.impl;
 
 import akzholedu.kz.specialities.entities.QuizResult;
 import akzholedu.kz.specialities.entities.SpecialityQuiz;
-import akzholedu.kz.specialities.exceptions.NoSuchPageException;
+import akzholedu.kz.specialities.exceptions.ApiRequestException;
 import akzholedu.kz.specialities.repositories.QuizResultRepository;
 import akzholedu.kz.specialities.repositories.SpecialityQuizRepository;
 import akzholedu.kz.specialities.services.SpecialityService;
@@ -26,7 +26,9 @@ public class SpecialityServiceImpl implements SpecialityService {
 
     @Override
     public QuizResult getQuizResult(String code) {
+        if((quizResultRepository.findByCode(code))!=null)
         return quizResultRepository.findByCode(code);
+        else throw new ApiRequestException("Cannot find");
     }
 
     @Override
